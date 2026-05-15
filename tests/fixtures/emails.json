@@ -1,0 +1,92 @@
+[
+  {
+    "id": "msg_1",
+    "externalId": "ext_1",
+    "accountId": "acc_1",
+    "threadId": "thread_1",
+    "subject": "Q3 Board Deck Review",
+    "from": { "name": "Sarah Chen", "email": "sarah@acmecorp.com" },
+    "to": [{ "name": "You", "email": "you@inboxos.com" }],
+    "cc": [],
+    "bcc": [],
+    "body": {
+      "html": "<p>Hi team, please review the attached Q3 board deck before our meeting tomorrow at 10 AM. Pay special attention to the revenue slides.</p>",
+      "text": "Hi team, please review the attached Q3 board deck before our meeting tomorrow at 10 AM. Pay special attention to the revenue slides."
+    },
+    "snippet": "Hi team, please review the attached Q3 board deck before our meeting tomorrow...",
+    "labels": [{ "id": "label_inbox", "name": "Inbox", "type": "system" }],
+    "attachments": [],
+    "receivedAt": "2026-05-14T08:30:00.000Z",
+    "isRead": false,
+    "isStarred": true,
+    "priority": {
+      "score": 95,
+      "tier": "critical",
+      "reason": "Direct request from CEO regarding board meeting",
+      "signals": [],
+      "calculatedAt": "2026-05-14T08:30:05.000Z"
+    },
+    "aiSummary": null,
+    "syncStatus": "synced"
+  },
+  {
+    "id": "msg_2",
+    "externalId": "ext_2",
+    "accountId": "acc_1",
+    "threadId": "thread_2",
+    "subject": "Your AWS Invoice is Ready",
+    "from": { "name": "AWS Billing", "email": "no-reply-aws@amazon.com" },
+    "to": [{ "name": "You", "email": "you@inboxos.com" }],
+    "cc": [],
+    "bcc": [],
+    "body": {
+      "html": "<p>Your invoice for the period of April 2026 is available.</p>",
+      "text": "Your invoice for the period of April 2026 is available."
+    },
+    "snippet": "Your invoice for the period of April 2026 is available.",
+    "labels": [{ "id": "label_inbox", "name": "Inbox", "type": "system" }],
+    "attachments": [],
+    "receivedAt": "2026-05-13T14:15:00.000Z",
+    "isRead": true,
+    "isStarred": false,
+    "priority": {
+      "score": 30,
+      "tier": "low",
+      "reason": "Automated billing notification",
+      "signals": [],
+      "calculatedAt": "2026-05-13T14:15:05.000Z"
+    },
+    "aiSummary": null,
+    "syncStatus": "synced"
+  },
+  {
+    "id": "msg_3",
+    "externalId": "ext_3",
+    "accountId": "acc_1",
+    "threadId": "thread_3",
+    "subject": "Weekly Engineering Sync",
+    "from": { "name": "David Park", "email": "david@acmecorp.com" },
+    "to": [{ "name": "Engineering Team", "email": "eng@acmecorp.com" }],
+    "cc": [],
+    "bcc": [],
+    "body": {
+      "html": "<p>Agenda for today's sync: 1. Monorepo migration status. 2. CI/CD pipeline improvements.</p>",
+      "text": "Agenda for today's sync: 1. Monorepo migration status. 2. CI/CD pipeline improvements."
+    },
+    "snippet": "Agenda for today's sync: 1. Monorepo migration status...",
+    "labels": [{ "id": "label_inbox", "name": "Inbox", "type": "system" }],
+    "attachments": [],
+    "receivedAt": "2026-05-14T09:00:00.000Z",
+    "isRead": false,
+    "isStarred": false,
+    "priority": {
+      "score": 60,
+      "tier": "normal",
+      "reason": "Team-wide meeting agenda",
+      "signals": [],
+      "calculatedAt": "2026-05-14T09:00:05.000Z"
+    },
+    "aiSummary": null,
+    "syncStatus": "synced"
+  }
+]

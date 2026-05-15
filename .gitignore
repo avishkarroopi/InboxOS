@@ -1,0 +1,79 @@
+venv/
+models/
+tools/
+_pycache_/
+*.pt
+*.onnx
+*.bin
+*.gguf
+*.pkl
+*.log
+*.wav
+*.mp3
+*.mp4
+# ENV
+.env
+.env.*
+*.env
+
+# Python
+_pycache_/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+npm-debug.log
+
+# AI Models
+models/
+weights/
+checkpoints/
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Runtime
+logs/
+cache/
+temp/
+tmp/
+sessions/
+screenshots/
+recordings/
+
+# Databases
+chromadb/
+*.sqlite
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+dist/
+build/
+
+# Secrets
+credentials/
+tokens/
+oauth/
+*.pem
+*.key
+
+# Audio
+*.wav
+*.mp3
+
+# Video
+*.mp4
+
+# Archives
+*.zip
