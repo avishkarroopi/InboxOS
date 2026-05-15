@@ -77,3 +77,30 @@ oauth/
 
 # Archives
 *.zip
+# dependencies
+node_modules
+
+# next
+.next
+out
+
+# production
+dist
+build
+
+# env
+.env
+.env.local
+.env.production
+
+# turbo
+.turbo
+
+# logs
+*.log
+
+# typescript
+*.tsbuildinfo
+
+# vercel
+.vercel
