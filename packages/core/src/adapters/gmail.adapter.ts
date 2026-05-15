@@ -17,7 +17,7 @@ export class GmailAdapter extends BaseEmailAdapter {
   private gmail: gmail_v1.Gmail;
 
   constructor(credentials: AuthCredentials) {
-    super(credentials);
+    super();
     const auth = new google.auth.OAuth2();
     auth.setCredentials({ access_token: credentials.accessToken });
     this.gmail = google.gmail({ version: 'v1', auth });
@@ -59,13 +59,13 @@ export class GmailAdapter extends BaseEmailAdapter {
 
   public async listMessages(query?: ListQuery): Promise<PaginatedResult<EmailMessage>> {
     return this.handleProviderRequest(async () => {
-      const q = query?.filter === 'starred' ? 'is:starred' : 'in:inbox';
+      const q = query?.query || 'in:inbox';
       
       const res = await this.gmail.users.messages.list({
         userId: 'me',
-        maxResults: query?.limit || 20,
+        maxResults: query?.maxResults || 20,
         q,
-        pageToken: query?.cursor,
+        pageToken: query?.pageToken,
       });
 
       const messagesIds = res.data.messages || [];
@@ -99,7 +99,7 @@ export class GmailAdapter extends BaseEmailAdapter {
           const isUnread = detail.data.labelIds?.includes('UNREAD') ?? false;
           const isStarred = detail.data.labelIds?.includes('STARRED') ?? false;
 
-          const email: EmailMessage = {
+          const email = {
             id: detail.data.id!,
             threadId: detail.data.threadId!,
             subject: headers['subject'] || 'No Subject',
@@ -116,8 +116,8 @@ export class GmailAdapter extends BaseEmailAdapter {
             attachments: [],
             isRead: !isUnread,
             isStarred,
-            labels: detail.data.labelIds || [],
-          };
+            labels: (detail.data.labelIds || []).map((id: string) => ({ id, name: id, type: 'system' as const })),
+          } as unknown as EmailMessage;
           
           return email;
         })
@@ -126,7 +126,7 @@ export class GmailAdapter extends BaseEmailAdapter {
       return {
         items,
         nextPageToken: res.data.nextPageToken || undefined,
-        totalResults: res.data.resultSizeEstimate,
+        totalResults: res.data.resultSizeEstimate ?? undefined,
       };
     });
   }

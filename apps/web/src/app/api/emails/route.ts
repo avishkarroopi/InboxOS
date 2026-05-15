@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth/next";
 import { NextResponse } from "next/server";
-import { authOptions } from "../auth/[...nextauth]/route";
-import { GmailAdapter } from "@inbox-os/core/src/adapters/gmail.adapter";
+import { authOptions } from "@/lib/auth";
+import { GmailAdapter } from "@inbox-os/core";
 
 export async function GET(request: Request) {
   const session = await getServerSession(authOptions);
@@ -11,7 +11,8 @@ export async function GET(request: Request) {
   }
 
   const { searchParams } = new URL(request.url);
-  const filter = searchParams.get('filter') as any || 'inbox';
+  const filter = searchParams.get('filter') || 'inbox';
+  const gmailQuery = filter === 'starred' ? 'is:starred' : 'in:inbox';
 
   try {
     const adapter = new GmailAdapter({
@@ -20,7 +21,7 @@ export async function GET(request: Request) {
       expiresAt: 0,
     });
 
-    const results = await adapter.listMessages({ filter, limit: 15 });
+    const results = await adapter.listMessages({ query: gmailQuery, maxResults: 15 });
     
     // Convert Dates to strings for JSON serialization exactly as they appear over the wire
     const items = results.items.map(email => ({

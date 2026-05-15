@@ -1,5 +1,9 @@
 {
-  "/page": "app/page.js",
+  "/api/ai/draft/route": "app/api/ai/draft/route.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/api/emails/route": "app/api/emails/route.js",
+  "/api/ai/summarize/route": "app/api/ai/summarize/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/ai/prioritize/route": "app/api/ai/prioritize/route.js",
+  "/page": "app/page.js"
 }
